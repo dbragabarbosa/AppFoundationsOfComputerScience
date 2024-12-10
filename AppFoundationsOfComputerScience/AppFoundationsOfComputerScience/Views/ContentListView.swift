@@ -66,7 +66,7 @@ struct ContentListView: View
     {
         switch title
         {
-        case "Pilha":
+        case "Pilhas":
             return AnyView(StackView())
         case "Filas":
             return AnyView(QueueView())

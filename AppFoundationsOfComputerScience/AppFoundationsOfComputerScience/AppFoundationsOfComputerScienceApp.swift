@@ -14,7 +14,6 @@ struct AppFoundationsOfComputerScienceApp: App
     {
         WindowGroup
         {
-//            ContentView()
             HomeView()
         }
     }
