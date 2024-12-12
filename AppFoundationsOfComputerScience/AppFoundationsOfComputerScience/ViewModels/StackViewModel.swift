@@ -27,6 +27,4 @@ class StackViewModel: ObservableObject
         "3. Remover (Pop) o número 20 (Topo da pilha)",
         "4. O número 10 é agora o topo"
     ]
-    
-
 }
