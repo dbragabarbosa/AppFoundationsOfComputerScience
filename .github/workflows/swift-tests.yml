@@ -9,8 +9,18 @@ on:
       - main
 
 jobs:
-  list-xcode:
+  test:
     runs-on: macos-latest
+
     steps:
-      - name: Check Xcode Version
-        run: xcodebuild -version
+      # Verifica o código do repositório
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      # Configura o ambiente e instala dependências
+      - name: Set up Xcode
+        run: sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
+
+      # Executa os testes
+      - name: Run tests
+        run: xcodebuild test -scheme AppFoundationsOfComputerScience -destination 'platform=iOS Simulator,name=iPhone 14'
