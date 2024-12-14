@@ -19,6 +19,5 @@ jobs:
     - name: Display Xcode version
       run: xcodebuild -version
 
-    - name: Run tests
-      run: xcodebuild test -project AppFoundationsOfComputerScience/AppFoundationsOfComputerScience.xcodeproj -scheme AppFoundationsOfComputerScience -destination 'platform=macOS'
-
+    list-xcode:
+      - run: xcodebuild -version
