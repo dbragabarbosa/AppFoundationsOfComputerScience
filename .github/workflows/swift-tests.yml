@@ -17,14 +17,25 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v3
 
-      - name: Install Xcode 16.2
-        run: sudo softwareupdate --install-rosetta --agree-to-license
+      - name: List installed Xcode versions
+        run: ls /Applications/
 
-      # Select the latest available Xcode version
-      - name: Select available Xcode version
+      # Instala o Rosetta (necessário para algumas ações em macOS ARM)
+      - name: Install Rosetta
+        run: sudo softwareupdate --install-rosetta --agree-to-license
+  
+      - name: List installed Xcode versions
+        run: ls /Applications/
+
+      # Configura o Xcode para usar a versão 16.2
+      - name: Set Xcode version to 16.2
         run: sudo xcode-select -switch /Applications/Xcode_16.2.app/Contents/Developer
+
+      - name: Confirm Xcode version
+        run: xcodebuild -version
 
       # Run tests
       - name: Run tests
         run: xcodebuild test -project AppFoundationsOfComputerScience/AppFoundationsOfComputerScience.xcodeproj -scheme AppFoundationsOfComputerScience -destination 'platform=iOS Simulator,name=iPhone 14'
+
 
