@@ -20,6 +20,10 @@ jobs:
       - name: Install Xcode 16.2
         run: sudo softwareupdate --install-rosetta --agree-to-license
 
+      # Select the latest available Xcode version
+      - name: Select available Xcode version
+        run: sudo xcode-select -switch /Applications/Xcode_16.2.app/Contents/Developer
+
       # Run tests
       - name: Run tests
         run: xcodebuild test -project AppFoundationsOfComputerScience/AppFoundationsOfComputerScience.xcodeproj -scheme AppFoundationsOfComputerScience -destination 'platform=iOS Simulator,name=iPhone 14'
