@@ -9,15 +9,8 @@ on:
       - main
 
 jobs:
-  test:
+  list-xcode:
     runs-on: macos-latest
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
-
-    - name: Display Xcode version
-      run: xcodebuild -version
-
-    list-xcode:
-      - run: xcodebuild -version
+      - name: Check Xcode Version
+        run: xcodebuild -version
