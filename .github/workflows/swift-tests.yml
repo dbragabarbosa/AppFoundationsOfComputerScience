@@ -20,4 +20,5 @@ jobs:
       run: xcodebuild -version
 
     - name: Run tests
-      run: xcodebuild test -scheme AppFoundationsOfComputerScience -destination 'platform=macOS'
+      run: xcodebuild test -project AppFoundationsOfComputerScience/AppFoundationsOfComputerScience.xcodeproj -scheme AppFoundationsOfComputerScience -destination 'platform=macOS'
+
