@@ -13,14 +13,15 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      # Verifica o código do repositório
+      # Check out the repository
       - name: Check out code
         uses: actions/checkout@v3
 
-      # Configura o ambiente e instala dependências
-      - name: Set up Xcode
-        run: sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
+      # Use a specific version of Xcode
+      - name: Select Xcode 16.2
+        run: sudo xcode-select -switch /Applications/Xcode_16.2.app/Contents/Developer
 
-      # Executa os testes
+      # Run tests
       - name: Run tests
         run: xcodebuild test -project AppFoundationsOfComputerScience/AppFoundationsOfComputerScience.xcodeproj -scheme AppFoundationsOfComputerScience -destination 'platform=iOS Simulator,name=iPhone 14'
+
