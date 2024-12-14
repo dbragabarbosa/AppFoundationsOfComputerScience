@@ -16,10 +16,8 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Set up Xcode
-      uses: maxim-lobanov/setup-xcode@v2
-      with:
-        xcode-version: 15
+    - name: Display Xcode version
+      run: xcodebuild -version
 
     - name: Run tests
       run: xcodebuild test -scheme AppFoundationsOfComputerScience -destination 'platform=macOS'
