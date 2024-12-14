@@ -23,4 +23,4 @@ jobs:
 
       # Executa os testes
       - name: Run tests
-        run: xcodebuild test -scheme AppFoundationsOfComputerScience -destination 'platform=iOS Simulator,name=iPhone 14'
+        run: xcodebuild test -project AppFoundationsOfComputerScience/AppFoundationsOfComputerScience.xcodeproj -scheme AppFoundationsOfComputerScience -destination 'platform=iOS Simulator,name=iPhone 14'
