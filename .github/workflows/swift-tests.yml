@@ -17,9 +17,8 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v3
 
-      - name: Select available Xcode version
-        run: sudo xcode-select -switch /Applications/Xcode_15.4.app/Contents/Developer
-
+      - name: Install Xcode 16.2
+        run: sudo softwareupdate --install-rosetta --agree-to-license
 
       # Run tests
       - name: Run tests
