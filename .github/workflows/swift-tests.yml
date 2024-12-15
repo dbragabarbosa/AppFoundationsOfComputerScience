@@ -24,10 +24,6 @@ jobs:
       - name: Confirm Xcode version
         run: xcodebuild -version
 
-      # Step 3: Install dependencies
-      - name: Install dependencies
-        run: swift package resolve
-
       # Step 4: Reset simulators (optional)
       - name: Reset iOS Simulators
         run: |
