@@ -10,28 +10,41 @@ on:
 
 jobs:
   test:
+    name: Run Tests on macOS
     runs-on: macos-latest
-
     steps:
-      # Check out the repository
-      - name: Check out code
+      # Step 1: Check out the code
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      # Instala o Rosetta (caso necessário)
-      - name: Install Rosetta
-        run: sudo softwareupdate --install-rosetta --agree-to-license
-
-      # Configura o Xcode para usar a versão 16.1
+      # Step 2: Set up Xcode
       - name: Set Xcode version to 16.1
         run: sudo xcode-select -switch /Applications/Xcode_16.1.app/Contents/Developer
 
-      # Verifica a versão do Xcode
       - name: Confirm Xcode version
         run: xcodebuild -version
 
-      # Run tests
-      - name: Run tests
-        run: xcodebuild test -project AppFoundationsOfComputerScience/AppFoundationsOfComputerScience.xcodeproj -scheme AppFoundationsOfComputerScience -destination 'platform=iOS Simulator,name=iPhone 15'
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: swift package resolve
+
+      # Step 4: Reset simulators (optional)
+      - name: Reset iOS Simulators
+        run: |
+          xcrun simctl shutdown all
+          xcrun simctl erase all
+
+      # Step 5: Run tests with timeout
+      - name: Run Tests
+        run: |
+          timeout 1800 swift test --enable-code-coverage
+
+      # Step 6: Upload coverage data
+      - name: Upload Coverage Report
+        if: success() || failure()
+        run: |
+          bash <(curl -s https://codecov.io/bash) -t CODECOV_TOKEN
+
 
 
 
