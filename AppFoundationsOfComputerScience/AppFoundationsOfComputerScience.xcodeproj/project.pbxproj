@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 77;
 	objects = {
 
 /* Begin PBXContainerItemProxy section */
@@ -29,16 +29,6 @@
 		ED93FF702CF3BD2E0048C4A1 /* AppFoundationsOfComputerScienceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppFoundationsOfComputerScienceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		ED7AB5D92D0DD59100B8053F /* Exceptions for "AppFoundationsOfComputerScienceUITests" folder in "AppFoundationsOfComputerScienceUITests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				ViewsUITests/HomeViewUITests.swift,
-			);
-			target = ED93FF6F2CF3BD2E0048C4A1 /* AppFoundationsOfComputerScienceUITests */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		ED93FF582CF3BD2B0048C4A1 /* AppFoundationsOfComputerScience */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
@@ -48,14 +38,6 @@
 		ED93FF692CF3BD2E0048C4A1 /* AppFoundationsOfComputerScienceTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = AppFoundationsOfComputerScienceTests;
-			sourceTree = "<group>";
-		};
-		ED93FF732CF3BD2E0048C4A1 /* AppFoundationsOfComputerScienceUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				ED7AB5D92D0DD59100B8053F /* Exceptions for "AppFoundationsOfComputerScienceUITests" folder in "AppFoundationsOfComputerScienceUITests" target */,
-			);
-			path = AppFoundationsOfComputerScienceUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -90,7 +72,6 @@
 			children = (
 				ED93FF582CF3BD2B0048C4A1 /* AppFoundationsOfComputerScience */,
 				ED93FF692CF3BD2E0048C4A1 /* AppFoundationsOfComputerScienceTests */,
-				ED93FF732CF3BD2E0048C4A1 /* AppFoundationsOfComputerScienceUITests */,
 				ED93FF572CF3BD2B0048C4A1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -165,9 +146,6 @@
 			);
 			dependencies = (
 				ED93FF722CF3BD2E0048C4A1 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				ED93FF732CF3BD2E0048C4A1 /* AppFoundationsOfComputerScienceUITests */,
 			);
 			name = AppFoundationsOfComputerScienceUITests;
 			packageProductDependencies = (
