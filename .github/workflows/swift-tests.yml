@@ -33,9 +33,7 @@ jobs:
       # Step 5: Run tests with timeout
 
       - name: Build
-        run: swift build -v
-      - name: Run tests
-        run: swift test -v
+        run: xcodebuild test -project AppFoundationsOfComputerScience/AppFoundationsOfComputerScience.xcodeproj -scheme AppFoundationsOfComputerScience -destination 'platform=macOS'
 
       # Step 6: Upload coverage data
       - name: Upload Coverage Report
