@@ -25,6 +25,12 @@ jobs:
       - name: Confirm Xcode version
         run: xcodebuild -version
 
+      # Specify the version of Swift to use
+      - name: Setup Swift
+        uses: actions/setup-swift@v2
+        with:
+            swift-version: '5.3'
+
       # Step 5: Run tests
       - name: Run tests
         run: swift test
