@@ -25,12 +25,6 @@ jobs:
       - name: Confirm Xcode version
         run: xcodebuild -version
 
-      - name: Install dependencies
-        run: |
-          xcode-select --switch /Applications/Xcode.app
-          sudo xcodebuild -license accept
-          xcrun simctl list
-
       # Step 5: Run tests
       - name: Run tests
         run: xcodebuild test -scheme "AppFoundationsOfComputerScienceTests" -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest' -enableCodeCoverage YES
