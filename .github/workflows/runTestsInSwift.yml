@@ -27,7 +27,7 @@ jobs:
 
       # Step 5: Run tests
       - name: Run tests
-        run: xcodebuild test -scheme AppFoundationsOfComputerScience/AppFoundationsOfComputerScience.xcodeproj -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest'
+        run: swift test
 
 
 
