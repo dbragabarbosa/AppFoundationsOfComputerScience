@@ -11,7 +11,7 @@ on:
 jobs:
   test:
     name: Run Tests on macOS
-    runs-on: macos-latest
+    runs-on: macos-15
     steps:
       # Step 1: Check out the code
       - name: Checkout code
