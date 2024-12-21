@@ -27,4 +27,35 @@ class StackViewModel: ObservableObject
         "3. Remover (Pop) o número 20 (Topo da pilha)",
         "4. O número 10 é agora o topo"
     ]
+    
+    @Published var interactiveExampleSteps: [String] = []
+    
+    @Published var currentStack: [String] = []
+    
+    @Published var userInput: String = ""
+    
+    private var stack = Stack<String>()
+    
+    func pushToStack()
+    {
+        guard !userInput.isEmpty else { return }
+        stack.push(userInput)
+        updateStack()
+        userInput = ""
+    }
+    
+    func popFromStack()
+    {
+        if let removed = stack.pop()
+        {
+            updateStack()
+            interactiveExampleSteps.append("Removido (Pop): \(removed)")
+        }
+    }
+    
+    private func updateStack()
+    {
+        currentStack = stack.allElements()
+    }
 }
+
