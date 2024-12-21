@@ -11,16 +11,41 @@ struct QueueView: View
 {
     @StateObject private var viewModel = QueueViewModel()
     
+    @State private var showInteractiveView = false
+    
     var body: some View
     {
-        GenericContentView(
-            title: viewModel.title,
-            description: viewModel.description,
-            exampleText: viewModel.exampleText,
-            exampleSteps: viewModel.exampleQueue
-        )
+        VStack(spacing: 20)
+        {
+            GenericContentView(
+                title: viewModel.title,
+                description: viewModel.description,
+                exampleText: viewModel.exampleText,
+                exampleSteps: viewModel.exampleQueue
+            )
+            
+            Button(action: {
+                showInteractiveView = true
+            }) {
+                Text("Interaja com a Fila")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.blue)
+                    .cornerRadius(12)
+            }
+            .padding(.horizontal, 20)
+        }
+        .padding()
+        .background(Color.black.ignoresSafeArea())
+        .fullScreenCover(isPresented: $showInteractiveView)
+        {
+            InteractiveQueueView()
+        }
     }
 }
+
 
 #Preview
 {

@@ -1,5 +1,5 @@
 //
-//  InteractiveStackView.swift
+//  InteractiveQueueView.swift
 //  AppFoundationsOfComputerScience
 //
 //  Created by Daniel Braga Barbosa on 21/12/24.
@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-struct InteractiveStackView: View
+struct InteractiveQueueView: View
 {
-    @StateObject private var viewModel = InteractiveStackViewModel()
+    @StateObject private var viewModel = InteractiveQueueViewModel()
     @Environment(\.dismiss) private var dismiss
     
     var body: some View
     {
         VStack(spacing: 20)
         {
-            Text("Interaja com a Pilha")
+            Text("Interaja com a Fila")
                 .font(.title)
                 .fontWeight(.bold)
                 .foregroundColor(.white)
@@ -26,9 +26,9 @@ struct InteractiveStackView: View
             
             VStack(spacing: 10)
             {
-                if viewModel.currentStack.isEmpty
+                if viewModel.elements.isEmpty
                 {
-                    Text("A pilha está vazia.")
+                    Text("A fila está vazia.")
                         .font(.headline)
                         .foregroundColor(.gray)
                 } else {
@@ -36,7 +36,7 @@ struct InteractiveStackView: View
                     {
                         VStack(spacing: 10)
                         {
-                            ForEach(viewModel.currentStack.reversed(), id: \.self)
+                            ForEach(viewModel.elements, id: \.self)
                             { item in
                                 Text(item)
                                     .font(.body)
@@ -63,18 +63,18 @@ struct InteractiveStackView: View
                 HStack(spacing: 10)
                 {
                     Button(action: {
-                        viewModel.popFromStack()
+                        viewModel.dequeue()
                     }) {
-                        Text("Pop")
+                        Text("Dequeue")
                             .font(.headline)
                             .foregroundColor(.white)
                             .padding()
-                            .frame(width: 100)
+                            .frame(width: 120)
                             .background(Color.red)
                             .cornerRadius(8)
                     }
                     
-                    TextField(" ", text: $viewModel.userInput)
+                    TextField(" ", text: $viewModel.newItem)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding()
                         .background(Color.black.opacity(0.8))
@@ -82,13 +82,13 @@ struct InteractiveStackView: View
                         .frame(maxWidth: .infinity)
                     
                     Button(action: {
-                        viewModel.pushToStack()
+                        viewModel.enqueue()
                     }) {
-                        Text("Push")
+                        Text("Enqueue")
                             .font(.headline)
                             .foregroundColor(.white)
                             .padding()
-                            .frame(width: 100)
+                            .frame(width: 120)
                             .background(Color.green)
                             .cornerRadius(8)
                     }
@@ -120,5 +120,5 @@ struct InteractiveStackView: View
 
 #Preview
 {
-    InteractiveStackView()
+    InteractiveQueueView()
 }
