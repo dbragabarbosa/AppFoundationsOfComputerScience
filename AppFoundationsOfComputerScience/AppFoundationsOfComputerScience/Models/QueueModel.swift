@@ -5,6 +5,8 @@
 //  Created by Daniel Braga Barbosa on 21/12/24.
 //
 
+import Foundation
+
 struct Queue<T>
 {
     private var elements: [T] = []
