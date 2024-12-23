@@ -1,5 +1,5 @@
 //
-//  InteractiveLinearSearchView.swift
+//  InteractiveBinarySearchView.swift
 //  AppFoundationsOfComputerScience
 //
 //  Created by Daniel Braga Barbosa on 22/12/24.
@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-struct InteractiveLinearSearchView: View
+struct InteractiveBinarySearchView: View
 {
-    @StateObject private var viewModel = InteractiveLinearSearchViewModel()
+    @StateObject private var viewModel = InteractiveBinarySearchViewModel()
     @Environment(\.dismiss) private var dismiss
 
     var body: some View
     {
         VStack(spacing: 20)
         {
-            Text("Simulação: Busca Linear")
+            Text("Simulação: Busca Binária")
                 .font(.title2)
                 .fontWeight(.bold)
                 .foregroundColor(.white)
@@ -35,12 +35,12 @@ struct InteractiveLinearSearchView: View
                         .background(viewModel.getBackgroundColor(for: index))
                         .cornerRadius(8)
                         .offset(y: viewModel.getOffset(for: index))
-                        .animation(.easeInOut, value: viewModel.currentIndex)
+                        .animation(.easeInOut, value: viewModel.midIndex)
                 }
             }
             .padding()
 
-            if let statusMessage = viewModel.statusMessage
+            if let statusMessage = viewModel.message
             {
                 Text(statusMessage)
                     .font(.subheadline)
@@ -84,14 +84,13 @@ struct InteractiveLinearSearchView: View
                     .cornerRadius(12)
             }
             .padding(.horizontal, 20)
-
         }
         .padding()
         .background(Color.black.ignoresSafeArea())
     }
 }
 
-#Preview
-{
-    InteractiveLinearSearchView()
+
+#Preview {
+    InteractiveBinarySearchView()
 }
