@@ -72,6 +72,8 @@ struct ContentListView: View
             return AnyView(QueueView())
         case "Árvores":
             return AnyView(TreeView())
+        case "Arrays":
+            return AnyView(ArrayView())
         case "Busca linear":
             return AnyView(LinearSearchView())
         case "Busca binária":
