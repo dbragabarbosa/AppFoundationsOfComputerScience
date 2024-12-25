@@ -25,10 +25,10 @@ class SelectionSortViewModel: ObservableObject
     
     @Published var exampleSteps: [String] = [
         "Lista inicial: [29, 10, 14, 37, 13]",
-        "1. Encontre o menor elemento: 10. Troque com o primeiro elemento.",
+        "Encontre o menor elemento: 10. Troque com o primeiro elemento.",
         "   Lista atual: [10, 29, 14, 37, 13]",
-        "2. Encontre o próximo menor elemento: 13. Troque com o segundo elemento.",
+        "Encontre o próximo menor elemento: 13. Troque com o segundo elemento.",
         "   Lista atual: [10, 13, 14, 37, 29]",
-        "3. Continue até a lista estar ordenada: [10, 13, 14, 29, 37]"
+        "Continue até a lista estar ordenada: [10, 13, 14, 29, 37]"
     ]
 }

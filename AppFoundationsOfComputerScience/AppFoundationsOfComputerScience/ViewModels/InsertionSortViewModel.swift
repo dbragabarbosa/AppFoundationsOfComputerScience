@@ -24,11 +24,11 @@ class InsertionSortViewModel: ObservableObject
     
     @Published var exampleSteps: [String] = [
         "Lista inicial: [8, 4, 2, 6]",
-        "1. Compare o segundo elemento (4) com o primeiro (8) e insira antes.",
+        "Compare o segundo elemento (4) com o primeiro (8) e insira antes.",
         "   Lista atual: [4, 8, 2, 6]",
-        "2. Compare o terceiro elemento (2) com os anteriores e insira antes do 4.",
+        "Compare o terceiro elemento (2) com os anteriores e insira antes do 4.",
         "   Lista atual: [2, 4, 8, 6]",
-        "3. Compare o último elemento (6) com os anteriores e insira após o 4.",
+        "Compare o último elemento (6) com os anteriores e insira após o 4.",
         "   Lista ordenada: [2, 4, 6, 8]"
     ]
 }
