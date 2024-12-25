@@ -11,12 +11,16 @@ import SwiftUICore
 class InteractiveInsertionSortViewModel: InteractiveSortingViewModel<Int>
 {
     private var iteration = 1
+    private var isSortingCompleted = false
 
     func startSorting()
     {
         guard iteration < list.count else {
-            message = "Ordenação concluída!"
-            resetState()
+            DispatchQueue.main.async
+            {
+                self.message = "Ordenação concluída!"
+                self.isSortingCompleted = true
+            }
             return
         }
 
@@ -56,14 +60,17 @@ class InteractiveInsertionSortViewModel: InteractiveSortingViewModel<Int>
 
     override func getBackgroundColor(for index: Int) -> Color
     {
-        if index == currentIndex {
-            return Color.yellow
-        } else if index == comparisonIndex {
-            return Color.yellow
-        } else if index < iteration {
+        if isSortingCompleted
+        {
             return Color.green
         }
-        
-        return Color.gray
+        else if index == currentIndex || index == comparisonIndex
+        {
+            return Color.yellow
+        }
+        else
+        {
+            return Color.gray
+        }
     }
 }
