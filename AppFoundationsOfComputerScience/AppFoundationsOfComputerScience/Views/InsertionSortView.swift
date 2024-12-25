@@ -27,7 +27,7 @@ struct InsertionSortView: View
             Button(action: {
                 showInteractiveView = true
             }) {
-                Text("Interaja com o insertion sort")
+                Text("Interaja com o InsertionSort")
                     .font(.headline)
                     .foregroundColor(.white)
                     .padding()

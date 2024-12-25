@@ -123,7 +123,7 @@ struct ArrayConfigurationView: View
                 .background(Color.white.opacity(0.1))
                 .cornerRadius(12)
                 .keyboardType(.numberPad)
-                .foregroundColor(.white)
+                .foregroundColor(.black)
                 .accentColor(.blue)
 
             Button(action: configureArray)

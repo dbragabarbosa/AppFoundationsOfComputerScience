@@ -26,7 +26,7 @@ struct SelectionSortView: View
             Button(action: {
                 showInteractiveView = true
             }) {
-                Text("Interaja com o selection sort")
+                Text("Interaja com o SelectionSort")
                     .font(.headline)
                     .foregroundColor(.white)
                     .padding()

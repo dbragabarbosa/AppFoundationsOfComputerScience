@@ -26,7 +26,7 @@ struct BubbleSortView: View
             Button(action: {
                 showInteractiveView = true
             }) {
-                Text("Interaja com o bubble sort")
+                Text("Interaja com o BubbleSort")
                     .font(.headline)
                     .foregroundColor(.white)
                     .padding()
