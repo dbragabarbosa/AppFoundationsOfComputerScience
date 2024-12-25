@@ -15,18 +15,22 @@ struct ContentListView: View
     {
         ZStack
         {
-            Color.black
-                .ignoresSafeArea()
+            LinearGradient(
+                gradient: Gradient(colors: [Color.black, Color.blue]),
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            .ignoresSafeArea()
             
-            VStack(spacing: 20)
+            VStack(spacing: 16)
             {
                 Text(viewModel.title)
-                    .font(.title)
+                    .font(.largeTitle)
                     .fontWeight(.bold)
                     .foregroundColor(.white)
-                    .padding(.top, 10)
+                    .padding(.top, 20)
                 
-                Spacer()
+                Spacer(minLength: 20)
                 
                 ForEach(viewModel.titles, id: \.self)
                 { title in
@@ -34,31 +38,42 @@ struct ContentListView: View
                     {
                         HStack
                         {
-                            Image(systemName: "doc.text")
-                                .foregroundColor(.white)
+                            Image(systemName: "doc.text.fill")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 24, height: 24)
+                                .foregroundColor(.white.opacity(0.8))
                             
                             Text(title)
                                 .font(.headline)
-                                .fontWeight(.semibold)
+                                .fontWeight(.medium)
                                 .foregroundColor(.white)
+                                .padding(.leading, 8)
                             
                             Spacer()
                             
                             Image(systemName: "chevron.right")
-                                .foregroundColor(.white)
+                                .foregroundColor(.white.opacity(0.6))
                         }
-                        .padding(10)
-                        .frame(maxWidth: .infinity)
-                        .background(Color.blue.opacity(0.9))
-                        .cornerRadius(10)
-                        .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 2)
+                        .padding()
+                        .background(
+                            RoundedRectangle(cornerRadius: 12)
+                                .fill(Color.white.opacity(0.1))
+                        )
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 12)
+                                .stroke(Color.white.opacity(0.2), lineWidth: 1)
+                        )
+                        .shadow(color: Color.black.opacity(0.5), radius: 5, x: 0, y: 2)
                     }
                 }
+                
+                Spacer()
             }
-            .padding(.horizontal, 25)
-            .padding(.vertical, 40)
+            .padding(.horizontal, 20)
+            .padding(.vertical, 30)
         }
-        .navigationTitle(viewModel.title)
+        .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
     }
     
